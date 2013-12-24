@@ -1,77 +1,125 @@
 snippet cl
-	# ${1:class description}
-	class ${2:classname} {
+	# Class ${1:class_name}
+	#
+	#   ${2:class description}
+	#
+	# Parameters:
+	#
+	#   ${3:none}
+	#
+	# Actions:
+	#
+	#   ${4:actions description - What does this class do?}
+	#
+	# Requires:
+	#
+	#   ${5:nothing}
+	#
+	# Sample Usage:
+	#
+	# node default {
+	#   include $1
+	# }
+	class $1 {
 
-	  ${3:# code}
+	  ${6:# code}
 
 	}
-
 snippet clp
-	# ${1:class description}
-	class ${2:classname} ($${3:variable}) {
+	# Class ${1:class_name}
+	#
+	#   ${2:class description}
+	#
+	# Parameters:
+	#
+	#   ${3:none}
+	#
+	# Actions:
+	#
+	#   ${4:actions description - What does this class do?}
+	#
+	# Requires:
+	#
+	#   ${5:nothing}
+	#
+	# Sample Usage:
+	#
+	# node default {
+	#   include $1
+	# }
+	class $1 ($${6:variable}) {
 
-	  ${4:# code}
+	  ${7:# code}
 
 	}
-
 snippet clin
-	# ${1:class description}
-	class ${2:classname} inherits ${3:classname} {
+	# Class ${1:class_name}
+	#
+	#   ${2:class description}
+	#
+	# Parameters:
+	#
+	#   ${3:none}
+	#
+	# Actions:
+	#
+	#   ${4:actions description - What does this class do?}
+	#
+	# Requires:
+	#
+	#   ${5:nothing}
+	#
+	# Sample Usage:
+	#
+	# node default {
+	#   include $1
+	# }
+	class $1 inherits ${6:classname} {
 
-	  ${4:# code}
+	  ${7:# code}
 
 	}
-
 snippet def
 	define ${1:typename}(${2:args}) {
 
 	  ${3:# code}
 
 	}
-
 snippet node
 	node '${1:name}' {
 	  ${2:# code}
 	}
-
 snippet nodein
 	node '${1:name}' inherits '${2:name}' {
 	  ${3:# code}
 	}
-
 #############################################################################
 # CONDITIONALS
-
 snippet if
 	if $${1:variable} ${2:==} ${3:"value"} {
 	  ${4:# code}
 	}
-
 snippet ife
 	if $${1:variable} ${2:==} ${3:"value"} {
 	  ${4:# code}
 	}
 	  ${5:# code}
 	}
-
 snippet el
 	elsif $${1:variable} {
 	  ${2:# code}
 	}
-
 snippet elif
 	elsif $${1:variable} {
 	  ${2:# code}
 	} else {
 	  ${3:# code}
 	}
-
 snippet $?
 	$${1:variable} ? {
 	  ${2:value} => ${3:result},
 	  default => ${4:result},
 	},
-
 snippet case
 	case $${1:variable} {
 	  ${2:value}: {
@@ -81,14 +129,10 @@ snippet case
 	  ${4:# code}
 	  },
 	}
-
-
 #############################################################################
 # BUILT IN FUNCTIONS
-
 snippet alert
 	alert("${1:string}")
-
 snippet crit
 	crit("${1:string}")
 
@@ -99,10 +143,8 @@ snippet de
 	define ${1} (${2}) {
 	  ${3}
 	}
-
 snippet defined
 	defined(${1:resource})
-
 snippet dir
 	file { '${1:path}':
 	  ensure  => directory,
@@ -111,26 +153,20 @@ snippet dir
 	  mode    => '${4:mode}',
 	  require => ${5:require},
 	}
-
 snippet emerg
 	emerg("${1:string}")
-
 snippet err
 	err("${1:string}")
-
 snippet exec
 	exec { '${1:name}':
 	  command => '${2:$1}',
 	  user    => '${3:root}',
 	  ${4}    => ${5}
 	}
-
 snippet extlookup
 	extlookup("${1:key}", "${2:default value}")
-
 snippet fail
 	fail("${1:string}")
-
 snippet file
 	file { '${1:path}':
 	  ensure  => ${2:file},
@@ -140,89 +176,65 @@ snippet file
 	  source  => 'puppet:///modules/${6:source}',
 	  require => ${7:require},
 	}
-
 snippet fqdn
 	fqdn_rand(${1:range})
-
 snippet generate
 	generate("${1:command}")
-
 snippet inc
 	include ${1:classname}
-
 snippet info
 	info("${1:string}")
-
 snippet inline
 	inline_template("${1:string}")
-
 snippet ln
 	file { '${1:source}':
 	  ensure  => link,
 	  target  => '${2:target}',
 	  require => ${3:require},
 	}
-
 snippet md5
 	md5("${1:string}")
-
 snippet notice
 	notice("${1:string}")
-
 snippet p
 	package { '${1:package name}':
 	  ensure => ${2:present}
 	}
-
 snippet realize
 	realize(${1:string})
-
 snippet regsubst
 	regsubst($${1:target}, /${2:regexp}/, "${3:replacement}")
-
 snippet require
 	require ${1:classname}
-
 snippet search
 	search(${1:namespace})
-
 snippet sha1
 	sha1(${1:string})
-
 snippet quote
 	shellquote(${1:args})
-
 snippet se
 	service { '${1:service}':
-	  enable    => ${2:true},
-	  ensure    => ${3:running},
+	  ensure    => ${2:running},
+	  enable    => ${3:true},
 	  hasstatus => true,
 	}
-
 snippet service
 	service { '${1:service}':
-	  enable    => ${2:true},
-	  ensure    => ${3:running},
+	  ensure    => ${2:running},
+	  enable    => ${3:true},
 	  hasstatus => true,
 	}
-
 snippet split
 	split($${1:string}, "${2:regexp}")
-
 snippet sprintf
 	sprintf("${1:string}", ${2:args})
-
 snippet tag
 	tag("${1:string}")
-
 snippet tagged
 	tagged("${1:string}")
-
 snippet template
 	template("${1:path}")
-
 snippet versioncmp
 	versioncmp("${1:a}", "${2:b}")
-
 snippet warn
 	warning("${1:string}")
