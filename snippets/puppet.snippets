@@ -80,9 +80,32 @@ snippet clin
 
 	}
 snippet def
-	define ${1:typename}(${2:args}) {
+	# Define ${1:define_name}
+	#
+	#   ${2:define description}
+	#
+	# Parameters:
+	#
+	#   ${3:none}
+	#
+	# Actions:
+	#
+	#   ${4:define description - What does this define do?}
+	#
+	# Requires:
+	#
+	#   ${5:nothing}
+	#
+	# Sample Usage:
+	#
+	# node default {
+	#   $1 { 'name':
+	#     ${6:option} => '${7:option}',
+	#   }
+	# }
+	define $1($${8:args}) {
 
-	  ${3:# code}
+	  ${9:# code}
 
 	}
 snippet node
