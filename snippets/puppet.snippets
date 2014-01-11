@@ -79,6 +79,35 @@ snippet clin
 	  ${7:# code}
 
 	}
+snippet de
+	# Define ${1:define_name}
+	#
+	#   ${2:define description}
+	#
+	# Parameters:
+	#
+	#   ${3:none}
+	#
+	# Actions:
+	#
+	#   ${4:define description - What does this define do?}
+	#
+	# Requires:
+	#
+	#   ${5:nothing}
+	#
+	# Sample Usage:
+	#
+	# node default {
+	#   $1 { 'name':
+	#     ${6:option} => '${7:option}',
+	#   }
+	# }
+	define $1($${8:args}) {
+
+	  ${9:# code}
+
+	}
 snippet def
 	# Define ${1:define_name}
 	#
@@ -161,11 +190,6 @@ snippet crit
 
 snippet debug
 	debug("${1:string}")
-
-snippet de
-	define ${1} (${2}) {
-	  ${3}
-	}
 snippet defined
 	defined(${1:resource})
 snippet dir
